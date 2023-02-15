@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:FileCopy"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="200" MinWidth="800" MaxHeight="200" MaxWidth="800" WindowStartupLocation="CenterScreen">
+        Title="FileCopy" MinHeight="200" MinWidth="800" MaxHeight="200" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
