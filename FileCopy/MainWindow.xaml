@@ -3,35 +3,96 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:FileCopy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="200" MinWidth="800" MaxHeight="200" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Label Content="Source File:" Grid.Row="0" Grid.Column="0" Margin="5" />
-        <TextBox x:Name="txtSource" Grid.Row="0" Grid.Column="1" Margin="5" />
-        <Button x:Name="btnSelectSource" Content="..." Grid.Row="0" Grid.Column="2" Margin="5" Click="btnSelectSource_Click" />
-        <Label Content="Target File:" Grid.Row="1" Grid.Column="0" Margin="5" />
-        <TextBox x:Name="txtTarget" Grid.Row="1" Grid.Column="1" Margin="5" />
-        <Button x:Name="btnSelectTarget" Content="..." Grid.Row="1" Grid.Column="2" Margin="5" Click="btnSelectTarget_Click" />
-        <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Value="0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" />
-        <Label x:Name="lblStatus" Content="0%" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="5">
-            <Button x:Name="btnCopy" Content="Copy" Margin="5" Click="btnCopy_Click" />
-            <Button x:Name="btnSuspend" Content="Suspend" Margin="5" Click="btnSuspend_Click" />
-            <Button x:Name="btnResume" Content="Resume" Margin="5" Click="btnResume_Click" />
-            <Button x:Name="btnAbort" Content="Abort" Margin="5" Click="btnAbort_Click" />
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Source File:"  Grid.Column="0" Margin="5" />
+            <TextBox x:Name="txtSource"  Grid.Column="1" Margin="5" />
+            <Button x:Name="btnSelectSource" Content="..." Grid.Column="2" Margin="5" Click="btnSelectSource_Click"  ToolTip="Select Source File"/>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Target File:" Grid.Row="1" Grid.Column="0" Margin="5" />
+            <TextBox x:Name="txtTarget" Grid.Row="1" Grid.Column="1" Margin="5" />
+            <Button x:Name="btnSelectTarget" Content="..." Grid.Row="1" Grid.Column="2" Margin="5" Click="btnSelectTarget_Click" ToolTip="Select Target File"/>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Height="20" Value="0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" />
+
+            <Label x:Name="lblStatus" Foreground="White" Content="0%" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" />
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="5">
+                
+                <Button x:Name="btnCopy"  Margin="5" Click="btnCopy_Click" ToolTip="Copy">
+                    <materialDesign:PackIcon
+                Kind="ContentCopy"/>
+                </Button>
+                
+                <Button x:Name="btnSuspend" IsEnabled="False"  Margin="5" Click="btnSuspend_Click" ToolTip="Suspend">
+                    <materialDesign:PackIcon
+                Kind="Stop"/>
+                </Button>
+                
+                <Button x:Name="btnResume" IsEnabled="False" Margin="5" Click="btnResume_Click" ToolTip="Resume">
+                    <materialDesign:PackIcon
+                Kind="Play"/>
+                </Button>
+
+                <Button x:Name="btnAbort" IsEnabled="False"  Margin="5" Click="btnAbort_Click" ToolTip="Abort">
+                    <materialDesign:PackIcon
+                Kind="Cancel"/>
+                </Button>
+               
+                <Button x:Name="btnIcrement" Margin="5" Click="btnIcrement_Click" ToolTip="Increase Processing Time">
+                    <materialDesign:PackIcon
+                Kind="Add"/>
+                </Button>
+                
+                <Button x:Name="btnDecrement"   Margin="5" Click="btnDecrement_Click" ToolTip="Reduce Processing Time">
+                    <materialDesign:PackIcon
+                Kind="Minus"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>
