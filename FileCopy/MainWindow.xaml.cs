@@ -54,7 +54,9 @@ namespace FileCopy
 
         private void btnSelectTarget_Click(object sender, RoutedEventArgs e)
         {
+            string extension = System.IO.Path.GetExtension(sourceFilePath);
             var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = $"(*{extension})|*{extension}";
             if (saveFileDialog.ShowDialog() == true)
             {
                 txtTarget.Text = saveFileDialog.FileName;
